@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SignatureFunc {
 
-    public static byte[] applyECDSASig(PrivateKey privateKey, String input) {
+    public static byte[] applySigECDSA(PrivateKey privateKey, String input) {
         Signature dsa;
         byte[] output = new byte[0];
         try {
@@ -20,7 +20,7 @@ public class SignatureFunc {
         return output;
     }
 
-    public static boolean verifyECDSASig(PublicKey publicKey, String data, byte[] signature) {
+    public static boolean verifySigECDSA(PublicKey publicKey, String data, byte[] signature) {
         try {
             Signature ecdsaVerify = Signature.getInstance("ECDSA", "BC");
             ecdsaVerify.initVerify(publicKey);
